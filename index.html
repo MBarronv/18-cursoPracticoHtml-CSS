@@ -5,17 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<style>
-    /* Escribimos :root para definir las variables globales */
-    :root{
-        --white: #FFFFFF;
-        --black: #000000;
-        --very-light-pink: #C7C7C7;
-        --text-input-field: #F7F7F7;
-        --hospital-green : #ACD9B2;
-    }
-    
-</style>
+
+    <!-- 1.- Se busca en https://fonts.google.com , para la busqueda de la fuente seleccionada
+         2.- Se selecciona una de 300, 500 , 700 y ahi seleccionamos la familia para que la pagina
+             genere el link que podremos usar para pegarlo a nuestra pagina.
+         3.- Se genera dentro del tag de CSS en el selector de body la fuente mediante la regla copiada
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Escribimos :root para definir las variables globales */
+        :root{
+            --white: #FFFFFF;
+            --black: #000000;
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #F7F7F7;
+            --hospital-green : #ACD9B2;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+    </style>
 
 </head>
 <body>
