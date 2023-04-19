@@ -189,6 +189,101 @@
 }
 
 
+/* Carrito de compras  clase13.html */
+
+.product-detail {
+    background: var(--white);
+    width: 360px;
+    padding: 0 24px; /* se quita del top y botton osea se pone a cero */
+    position: absolute;
+    right: 0;
+    box-sizing: border-box;
+  }
+
+  .title-container{
+    display: flex;
+
+  }
+
+  .title-container img{
+    transform: rotate(180deg);
+    margin-right: 14px;
+  }
+
+  .title {
+    font-size: var(--lg);
+    font-weight: bold;
+  }
+
+  .my-order-content {
+    display:flex;
+    flex-direction: column;
+  }
+
+  .order{
+    display: grid;
+    grid-template-columns: auto 2fr auto auto;
+    gap: 16px;
+    background-color: var(--text-input-field);
+    margin-bottom: 24px;
+    border-radius: 8px;
+    padding: 0 24px;
+  }
+
+  .order p:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .order p:nth-child(2) {
+    text-align: end;
+    font-weight: bold;
+  }
+
+  .order p span:nth-child(1) {
+    font-size: var(--md);
+    font-weight: bold;
+  }
+
+  .shopping-cart{
+    display: grid;
+    grid-template-columns: auto 2fr auto auto auto;
+    gap: 16px;
+    margin-bottom: 24px ;
+    align-items: center;
+  }
+
+  .shopping-cart figure{
+    margin: 0;
+  }
+
+  .shopping-cart figure img{
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    object-fit: cover;
+  }
+
+  .shopping-cart p:nth-child(2){
+    color:  var(--very-light-pink);
+  }
+
+  .shopping-cart p:nth-child(3){
+    font-size: var(--md);
+    font-weight: bold;
+  }
+
+  .primary-button {
+    background-color: var(--hospital-green);
+    border-radius: 8px;
+    border: none;
+    color: var(--white);
+    cursor: pointer; /* para que aparezca la manita */
+    width: 100%;
+    height: 50px;
+    font-size: var(--md);
+    font-weight: bold;
+  }
 
 
 @media (max-width: 640px) {
@@ -207,6 +302,10 @@
 
     .desktop-menu{
         display: none;
+    }
+
+    .product-detail{
+        width: 100%;
     }
   }
 
