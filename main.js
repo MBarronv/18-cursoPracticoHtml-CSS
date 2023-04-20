@@ -3,10 +3,11 @@ const desktopMenu = document.querySelector( '.desktop-menu' );
 
 const iconMenuMovile = document.querySelector( '.menu' );
 const movileMenu = document.querySelector( '.movile-menu' );
+const productDetailCloseIcon = document.querySelector( '.product-detail-close' );
 
 const navbarShoppingCart = document.querySelector( '.navbar-shopping-cart' );
 const shoppingCartContainer = document.querySelector( '#shoppingCartContainer' );
-
+const productDetailCointainer = document.querySelector('#product-detail');
 
 const cardsContainer = document.querySelector( '.cards-container' );
 
@@ -14,10 +15,11 @@ const cardsContainer = document.querySelector( '.cards-container' );
 menuEmail.addEventListener('click', toggleDesktopMenu);
 iconMenuMovile.addEventListener('click', toggleMovileMenu);
 navbarShoppingCart.addEventListener('click', toggleShoppingCart);
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 
 function toggleDesktopMenu(){
-    // mutualmente excluyente con toggleShopingCart
+    // mutualmente excluyente 
     const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
     if( !isShoppingCartContainerClosed){
@@ -27,19 +29,23 @@ function toggleDesktopMenu(){
 }
 
 function toggleMovileMenu(){
-    // mutualmente excluyente con toggleShopingCart
+    // mutualmente excluyente
     const isShoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive');
 
     if( !isShoppingCartContainerClosed){
         shoppingCartContainer.classList.add('inactive');
     }
+
+    productDetailCointainer.classList.add('inactive');
+    
     movileMenu.classList.toggle('inactive');
 }
 
 function toggleShoppingCart(){
-    // mutualmente excluyente con toggleMovileMenu
+    // mutualmente excluyente
     const isMovileMenuClosed = movileMenu.classList.contains('inactive');
     const isDeskMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDatailClosed = productDetailCointainer.classList.contains('inactive');
 
     if( !isMovileMenuClosed){
         movileMenu.classList.add('inactive');
@@ -48,9 +54,26 @@ function toggleShoppingCart(){
     if( !isDeskMenuClosed){
         desktopMenu.classList.add('inactive');
     }
-    shoppingCartContainer.classList.toggle('inactive');
 
+    if( !isProductDatailClosed){
+        productDetailCointainer.classList.add('inactive');
+    }
+
+    shoppingCartContainer.classList.toggle('inactive');
 }
+
+
+function openProductDetailAside(){
+
+    shoppingCartContainer.classList.add('inactive');
+    productDetailCointainer.classList.remove('inactive');
+}
+
+
+function closeProductDetailAside(){
+    productDetailCointainer.classList.add('inactive');
+}
+
 
 
 // comandos para generar lista de productos generados semi automaticos desde js
@@ -74,7 +97,6 @@ productList.push({
     image: 'images/bike.jpg'
 });
 
-
 function renderProducts( productList ){
 
 
@@ -86,6 +108,8 @@ function renderProducts( productList ){
 
         const productImg = document.createElement('img');
         productImg.setAttribute('src', product.image);
+
+        productImg.addEventListener('click', openProductDetailAside )
 
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -113,8 +137,6 @@ function renderProducts( productList ){
 
         cardsContainer.appendChild(productCard);
 
-    }
-    
+    }   
 }
-
 renderProducts( productList );
